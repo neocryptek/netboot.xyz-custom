@@ -20,7 +20,7 @@ goto custom_exit
 
 :ubcd
 set util_path mirror.sysadminguide.net/ubcd/ubcd537.iso
-set util_file ubcd535.iso
+set util_file ubcd537.iso
 goto boot_memdisk
 
 :boot_memdisk
