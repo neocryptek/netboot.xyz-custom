@@ -8,6 +8,7 @@ clear custom_choice
 menu This is a Test Menu
 item --gap This is the first sub menu
 item ubcd ${space} Ultimate Boot CD (UBCD)
+item ubcd_local ${space} Local Ultimate Boot CD (UBCD)
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
 item --gap This is a second sub menu
@@ -39,6 +40,18 @@ imgverify ${util_file} ${sigs}${menu}/${util_file}.sig || goto error
 echo Signatures verified!
 echo
 :skip_sigs
+boot
+goto custom_exit
+
+:ubcd_local
+set util_path /boot/images/ubcd.iso
+set util_file ubcd.iso
+goto boot_memdisk
+
+:boot_local_memdisk
+imgfree
+kernel ${memdisk} iso raw
+initrd --name ${util_file} ${util_path}
 boot
 goto custom_exit
 
