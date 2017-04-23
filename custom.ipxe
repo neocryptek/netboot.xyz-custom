@@ -46,7 +46,7 @@ goto custom_exit
 :ubcd_local
 set util_path /boot/images/ubcd.iso
 set util_file ubcd.iso
-goto boot_memdisk
+goto boot_local_memdisk
 
 :boot_local_memdisk
 imgfree
