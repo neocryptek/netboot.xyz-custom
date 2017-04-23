@@ -28,18 +28,6 @@ goto boot_memdisk
 imgfree
 kernel ${memdisk} iso raw
 initrd --name ${util_file} http://${util_path}
-echo
-echo MD5sums:
-md5sum memdisk ${util_file}
-iseq ${img_sigs_enabled} true && goto verify_sigs || goto skip_sigs
-:verify_sigs
-echo
-echo Checking signatures...
-imgverify memdisk ${sigs}memdisk.sig || goto error
-imgverify ${util_file} ${sigs}${menu}/${util_file}.sig || goto error
-echo Signatures verified!
-echo
-:skip_sigs
 boot
 goto custom_exit
 
