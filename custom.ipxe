@@ -44,8 +44,7 @@ boot
 goto custom_exit
 
 :ubcd_local
-echo Trying file:/
-set util_path file:/boot/images/ubcd.iso
+set util_path /boot/images/ubcd537.iso
 set util_file ubcd.iso
 goto boot_local_memdisk
 
