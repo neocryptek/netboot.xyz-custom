@@ -9,6 +9,7 @@ menu This is a Test Menu
 item --gap This is the first sub menu
 item ubcd ${space} Ultimate Boot CD (UBCD)
 item ubcd_local ${space} Local Ultimate Boot CD (UBCD)
+item ubuntu_mini ${space} Ubuntu Mini Installer
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
 item --gap This is a second sub menu
@@ -22,6 +23,12 @@ goto custom_exit
 :ubcd
 set util_path mirror.sysadminguide.net/ubcd/ubcd537.iso
 set util_file ubcd537.iso
+goto boot_memdisk
+
+:ubuntu_mini
+#find latest link here http://cdimages.ubuntu.com/netboot/
+set util_path archive.ubuntu.com/ubuntu/dists/zesty/main/installer-i386/current/images/netboot/mini.iso
+set util_file ubuntu_mini.iso
 goto boot_memdisk
 
 :boot_memdisk
